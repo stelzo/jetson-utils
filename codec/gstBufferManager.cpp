@@ -316,7 +316,7 @@ bool gstBufferManager::Dequeue( void** output, imageFormat format, uint64_t time
 		cudaGraphicsResource* eglResource = NULL;
 		cudaEglFrame eglFrame;
 		
-		if( CUDA_FAILED(cudaGraphicsEGLRegisterImage(&eglResource, eglImage, cudaGraphicsRegisterFlagsReadOnly)) )
+		if( CUDA_FAILED(cudaGraphicsEGLRegisterImage(&eglResource, eglImage, cudaGraphicsRegisterFlagsNone)) )
 			return false;
 		
 		if( CUDA_FAILED(cudaGraphicsResourceGetMappedEglFrame(&eglFrame, eglResource, 0, 0)) )
